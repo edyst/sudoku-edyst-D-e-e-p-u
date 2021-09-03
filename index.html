@@ -4,384 +4,431 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="test.css" />
+    <title>Sudoku</title>
     <style>
-      /* html,body
-{
-    width: 100%;
-    height: 100%;
-    border: 0px;
-    overflow: auto;
-} */
+            /* html,body
+      {
+          width: 100%;
+          height: 100%;
+          border: 0px;
+          overflow: auto;
+      } */
 
-* {
-    box-sizing: border-box;
-}
+      * {
+          box-sizing: border-box;
+          margin:0;
+          padding:0;
+      }
 
-body
-{
-    margin: 0px;
-    padding: 0px;
-    font-family: Arial;
-    color: #6e6e6e !important;
-    font-family: Source Sans Pro,sans-serif !important;
-    font-size: 25px !important;
-    }
+      body
+      {
+          margin: 0px;
+          padding: 0px;
+          font-family: Arial;
+          color: #6e6e6e !important;
+          font-family: Source Sans Pro,sans-serif !important;
+          font-size: 25px !important;
+          /* border:1px solid black !important; */
+          height:700px !important;
+          }
 
-body,table,tr,td,div
-{
-    margin: 0px;
-    padding: 0px;
-    border: 0px;
-}
-table {
-    border-collapse: collapse;
-    border:1px solid #344861 !important;
-}
+      body,table,tr,td,div
+      {
+          margin: 0px;
+          padding: 0px;
+          border: 0px;
+      }
+      table {
+          border-collapse: collapse;
+          border:1px solid #344861 !important;
+      }
 
-b
-{
-    color: #FFFFFF;
-    font-weight: bold;
-}
+      b
+      {
+          color: #FFFFFF;
+          font-weight: bold;
+      }
 
-#Wrapper
-{
-    min-height: 720px;
-}
-
-
-
-#Main,#Content,#Footer
-{
-    width: 980px;
-    margin: 0 auto;
-}
-
-a
-{
-    color: #FFAEAE;
-    text-decoration: none;
-}
-
-a:hover
-{
-    color: #FFFFFF;
-    text-decoration: none;
-}
-
-/* #Content
-{
-    float: left;
-} */
-
-#Column1
-{
-    width: 300px;
-    /* float: left; */
-}
-
-#sudokuBoard
-{
-    width: 426px;
-    /* margin-left: 40px; */
-
-}
-
-#Column2 {
-    margin: auto !important;
-}
-#Column2
-{
-    width: 174px;
-    margin-left: 40px;
-}
-#Footer
-{
-    margin-top: 600px;
-    color: #910502;
-}
-
-#FooterDetails
-{
-    float: left;
-    font-size: 11px;
-}
+      #Wrapper
+      {
+          min-height: 700px;
+      }
 
 
 
-td.boardCellGroupA,td.boardCellGroupB
-{
-}
+      #Main,#Content,#Footer
+      {
+          width: 980px;
+          margin: 0 auto;
+      }
 
-/* td.boardCellGroupA td.boardCell
-{
-    width: 44px;
-    height: 44px;
-    border: 1px solid black;
-} */
-td.boardCellGroupA td.boardCell
-{
-    width: 60px;
-    height: 60px;
-    /* border: 1px solid black; */
-    border-collapse: collapse;
-}
-/* td.boardCellGroupB td.boardCell
-{
-    width: 44px;
-    height: 44px;
-    border: 1px solid black;
-} */
-td.boardCellGroupB td.boardCell
-{
-    width: 60px;
-    height: 60px;
-    /* border: 1px solid black; */
-}
-.staticValue
-{
-    font-family: Segoe UI, Arial;
-    text-align: center;
-    vertical-align: middle;
-    font-size: 30px;
-    color: Black;
-}
+      a
+      {
+          color: #FFAEAE;
+          text-decoration: none;
+      }
 
-.staticValue,.editValue
-{
-    width: 60px;
-    height: 60px;
-    padding: 0px;
-    margin: 0px;
-    border: 1px solid #bec6d4;
-    border-collapse: collapse;
-}
+      a:hover
+      {
+          color: #FFFFFF;
+          text-decoration: none;
+      }
 
-.editValue:hover
-{
-    background: #eee;
-}
+      /* #Content
+      {
+          float: left;
+      } */
 
-label
-{
-    position: relative;
-    top: 3px;
-    line-height: 24px;
-    font-size: 15px;
-    color: #FFFFFF;
-    color:black;
-    border:1px solid black;
-}
+      #Column1
+      {
+          width: 300px;
+          /* float: left; */
+      }
 
-select
-{
-    font-family: Arial;
-    color: #999999;
-    font-weight: normal;
-    font-size: 12px;
-    border-top: solid 1px #CCCCCC;
-    border-left: solid 1px #E2E3EA;
-    border-bottom: solid 1px #FFFFFF;
-    border-right: solid 1px #E2E3EA;
-    margin: 3px 0px;
-    min-width: 100px;
-    background: #FDFDFD;
-    border:1px solid black;
+      #sudokuBoard
+      {
+          width: 426px;
+          /* margin-left: 40px; */
 
-}
+      }
+
+      #Column2 {
+          margin: auto !important;
+      }
+      #Column2
+      {
+          width: 174px;
+          /* margin-left: 40px; */
+      }
+      #Footer
+      {
+          margin-top: 500px;
+          color: #910502;
+      }
+
+      #FooterDetails
+      {
+          float: left;
+          font-size: 11px;
+      }
 
 
-.finishedLabel
-{
-    color: #FBF2A8;
-}
 
-.editValue input
-{
-    font-family: Segoe UI, Arial;
-    font-size: 30px;
-    color: #FFFFFF;
-    width: 44px;
-    /*height: 44px;*/
-    padding: 0px;
-    border: 0px;
-    background: none !important;
-    text-align: center;
-    vertical-align: middle;
-    position: relative;
-    left: -1px;
-}
+      /* td.boardCellGroupA,td.boardCellGroupB
+      {
+      } */
 
-input[type="submit"]
-{
-    font-family: Arial;
-    font-size: 18px;
-    color: #FFFFFF;
-    text-transform: uppercase;
-    border: 0px;
-    min-width: 162px;
-    min-height: 34px;
-    margin: 8px 0px;
-    cursor: pointer;
-    border:1px solid black;
+      /* td.boardCellGroupA td.boardCell
+      {
+          width: 44px;
+          height: 44px;
+          border: 1px solid black;
+      } */
+      td.boardCellGroupA td.boardCell
+      {
+          width: 60px;
+          height: 60px;
+          /* border: 1px solid black; */
+          border-collapse: collapse;
+      }
+      /* td.boardCellGroupB td.boardCell
+      {
+          width: 44px;
+          height: 44px;
+          border: 1px solid black;
+      } */
+      td.boardCellGroupB td.boardCell
+      {
+          width: 60px;
+          height: 60px;
+          /* border: 1px solid black; */
+      }
+      .staticValue
+      {
+          font-family: Segoe UI, Arial;
+          text-align: center;
+          vertical-align: middle;
+          font-size: 30px;
+          color: Black;
+      }
 
-}
+      .staticValue,.editValue
+      {
+          width: 60px;
+          height: 60px;
+          padding: 0px;
+          margin: 0px;
+          border: 1px solid #bec6d4;
+          border-collapse: collapse;
+      }
 
-input[type="submit"].gameControls
-{
-    font-family: Arial;
-    font-size: 16px;
-    color: #FFFFFF;
-    text-transform: uppercase;
-    border: 0px;
-    min-width: 28px;
-    min-height: 28px;
-    margin: 8px 0px;
-    padding: 2px 16px;
-    cursor: pointer;
-    color:black;
-    border:1px solid black;
-}
+      .editValue:hover
+      {
+          background: #eee;
+      }
 
-.gameControlSet
-{
-    height: auto;
-    position: relative;
-    top: -8px;
-    color:black;
-}
+      label
+      {
+          position: relative;
+          top: 3px;
+          line-height: 24px;
+          font-size: 15px;
+          color: #FFFFFF;
+          color:black;
+          border:1px solid black;
+      }
 
-#buttonSolve
-{
-    margin-top: 119px;
-    color: #FFAEAE;
-}
+      select
+      {
+          font-family: Arial;
+          color: #999999;
+          font-weight: normal;
+          font-size: 12px;
+          border-top: solid 1px #CCCCCC;
+          border-left: solid 1px #E2E3EA;
+          border-bottom: solid 1px #FFFFFF;
+          border-right: solid 1px #E2E3EA;
+          margin: 3px 0px;
+          min-width: 100px;
+          background: #FDFDFD;
+          border:1px solid black;
 
-#youWon
-{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-}
+      }
 
-/* #youWon div
-{
-    width: 400px;
-    background: #0000;
-    font-size: 40px;
-    color: #FFFFFF;
-    text-align: center;
-    padding: 40px;
-    margin: 100px auto 0px auto;
-} */
-#youWon div
-{
-    width: 560px;
-    height:550px;
-    /* vertical-align: top !important; */
-    /* border:1px solid yellow; */
-    background: linear-gradient(to right, rgb(74,194,243)50%, rgb(0,114,227));
-    font-size: 40px;
-    color: #FFFFFF;
-    text-align: center;
-    padding: 40px;
-    margin:auto;
-    margin-top:50px;
-    /* animation-name: slide;
-    animation-timing-function: linear;
-    animation-duration: 3s;
-    animation-iteration-count:unset; */
-    /* margin: 100px 0 0px 0; */
-}
-/* @keyframes slide {
-    0% {background-color: #fff; left:0;top:0;}
-    50% {background-color:inherit;}
-    100% {background-color: inherit;}
-} */
-small
-{
-    font-size: 14px;
-    color: #FFFD7B;
-}
 
-.noErrors
-{
-    font-size: 18px;
-    font-weight: bold;
-    color: #FFFFFF;
-}
+      .finishedLabel
+      {
+          color: #FBF2A8;
+      }
 
-.errorsFound
-{
-    font-size: 18px;
-    font-weight: bold;
-    color: black !important;
-}
+      .editValue input
+      {
+          font-family: Segoe UI, Arial;
+          font-size: 30px;
+          color: #FFFFFF;
+          width: 44px;
+          /*height: 44px;*/
+          padding: 0px;
+          border: 0px;
+          background: none !important;
+          text-align: center;
+          vertical-align: middle;
+          position: relative;
+          left: -1px;
+      }
 
-.error
-{
-    border: 1px solid #ED823F;
-}
-/* my */
-.staticValue {
-    padding-top:9px;
-    pointer-events: none;
-    text-align: center !important;
-    vertical-align: text-bottom !important;
-    background-color: #eaebe4;
-    color: #344861 !important;
-}
-#sudokuBoard {
-    margin:auto;
-    color:#344861 !important;
-}
-#Content {
-    height:auto;
-    width:1535px;
-}
-#maintable input {
-    width:60px;
-    height:60px;
-}
-#maintable  {
-    border-collapse: collapse;
-    margin-top:50px;
-    margin-bottom: 50px;
-}
-#Column2 {
-    width:550px !important;
-}
-#Column2 > *{
-    margin:10px 5px 10px 5px;
-    text-align: center;
-    vertical-align:baseline;
-}
-input {
-    color : #344861 !important;
-    text-align: center !important;
-}
-.staticValue > input {
-    text-align: center !important;
-    vertical-align:middle !important;
-    padding-top: 5px;
-}
-#Column2 > * {
-    color:black !important;
-    vertical-align: middle !important;
-}
-#Column2 select {
-    margin-top: 15px !important;
-}
+      input[type="submit"]
+      {
+          font-family: Arial;
+          font-size: 18px;
+          color: #FFFFFF;
+          text-transform: uppercase;
+          border: 0px;
+          min-width: 162px;
+          min-height: 34px;
+          margin: 8px 0px;
+          cursor: pointer;
+          border:1px solid black;
+
+      }
+
+      input[type="submit"].gameControls
+      {
+          font-family: Arial;
+          font-size: 16px;
+          color: #FFFFFF;
+          text-transform: uppercase;
+          border: 0px;
+          min-width: 28px;
+          min-height: 28px;
+          margin: 8px 0px;
+          padding: 2px 16px;
+          cursor: pointer;
+          color:black;
+          border:1px solid black;
+      }
+
+      .gameControlSet
+      {
+          height: auto;
+          position: relative;
+          top: -8px;
+          color:black;
+      }
+
+      #buttonSolve
+      {
+          margin-top: 119px;
+          color: #FFAEAE;
+      }
+
+      #youWon
+      {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0px;
+          right: 0px;
+      }
+
+      /* #youWon div
+      {
+          width: 400px;
+          background: #0000;
+          font-size: 40px;
+          color: #FFFFFF;
+          text-align: center;
+          padding: 40px;
+          margin: 100px auto 0px auto;
+      } */
+      #youWon div
+      {
+          width: 560px;
+          height:550px;
+          /* vertical-align: top !important; */
+          /* border:1px solid yellow; */
+          background: linear-gradient(to right, rgb(74,194,243)50%, rgb(0,114,227));
+          font-size: 40px;
+          color: #FFFFFF;
+          text-align: center;
+          padding: 40px;
+          margin:auto;
+          margin-top:20px;
+          /* animation-name: slide;
+          animation-timing-function: linear;
+          animation-duration: 3s;
+          animation-iteration-count:unset; */
+          /* margin: 100px 0 0px 0; */
+      }
+      /* @keyframes slide {
+          0% {background-color: #fff; left:0;top:0;}
+          50% {background-color:inherit;}
+          100% {background-color: inherit;}
+      } */
+      small
+      {
+          font-size: 14px;
+          color: #FFFD7B;
+      }
+
+      .noErrors
+      {
+          font-size: 18px;
+          font-weight: bold;
+          color: #FFFFFF;
+      }
+
+      .errorsFound
+      {
+          font-size: 18px;
+          font-weight: bold;
+          color: black !important;
+      }
+
+      .error
+      {
+          border: 1px solid red;
+          /* background-color: #ED823F; */
+      }
+      /* my */
+      .staticValue {
+          padding-top:9px;
+          pointer-events: none;
+          text-align: center !important;
+          vertical-align: text-bottom !important;
+          background-color: #eaebe4;
+          color: #344861 !important;
+      }
+      #sudokuBoard {
+          margin: auto !important;
+          color:#344861 !important;
+      }
+      #Content {
+          height:auto;
+          width:auto;
+      }
+      #maintable input {
+          width:60px;
+          height:60px;
+      }
+      #maintable input:focus {
+          background-color: #c9e9f9 !important;
+      }
+      #maintable  {
+          border-collapse: collapse;
+          margin-top:20px;
+          margin-bottom: 20px;
+      }
+      #Column2 {
+          width:560px !important;
+          
+      }
+      #Column2 > *{
+          margin:10px 5px 10px 5px;
+          text-align: center;
+          vertical-align:baseline;
+      }
+      input {
+          color : #344861 !important;
+          text-align: center !important;
+      }
+      .staticValue > input {
+          text-align: center !important;
+          vertical-align:middle !important;
+          padding-top: 5px;
+      }
+      #Column2 > * {
+          color:black !important;
+          vertical-align: middle !important;
+      }
+      #Column2 select {
+          margin-top: 15px !important;
+      }
+      #winNewGameButton {
+          background-color: #0000;
+          color:white !important;
+          border:3px solid white;
+          border-radius: 0;
+          padding:12px 20px;
+      }
+      #winNewGameButton:hover {
+          background-color: white;
+          color:rgb(74,194,243) !important;
+      }
+      #winCloseButton {
+          background-color: #0000;
+          color:white !important;
+          border:3px solid white;
+          border-radius: 0;
+          padding:12px 20px;
+      }
+      #winCloseButton:hover {
+          background-color: white;
+          color:rgb(74,194,243) !important;
+      }
+      #youWon small {
+          color: white !important;
+          font-size: 20px !important;
+      }
+      #youWon span {
+          color: white !important;
+          font-size: 45px !important;
+      }
+      #Column1 {
+          display:none;
+      }
+      table input:focus{
+          background-color: #e2ebf3 !important;
+      }
+      /* input:focus .boardCellGroupA  {
+          background-color: #c9e9f9 !important;
+      } */
     </style>
 </head>
 <body>
-    <div id="Wrapper" style="border: 1px solid black;">
+    <div id="Wrapper" >
             <div id="Content">
-                <div id="Column1" style="border: 1px solid blue;display: none;">
+                <div id="Column1" >
                     
                     <input id="amazeButton" type="submit" value="" />
 
@@ -392,51 +439,51 @@ input {
                             <td class="boardCellGroupA">
                                 <table cellspacing="" cellpadding="0">
                                     <tr>
-                                        <td class="boardCell">
+                                        <td class="boardCell" id="first">
                                             <div id="00" class="staticValue">
                                                 <input>6</input>
                                             </div>
                                         </td>
-                                        <td class="boardCell">
+                                        <td class="boardCell" id="first">
                                             <div id="01" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
-                                        <td class="boardCell">
+                                        <td class="boardCell" id="first">
                                             <div id="02" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="boardCell">
+                                        <td class="boardCell" id="first">
                                             <div id="10" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
-                                        <td class="boardCell">
+                                        <td class="boardCell" id="first">
                                             <div id="11" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
-                                        <td class="boardCell">
+                                        <td class="boardCell" id="first">
                                             <div id="12" class="staticValue">
                                                 <input>4</input>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="boardCell">
+                                        <td class="boardCell" id="first">
                                             <div id="20" class="staticValue">
                                                 <input>2</input>
                                             </div>
                                         </td>
-                                        <td class="boardCell">
+                                        <td class="boardCell" id="first">
                                             <div id="21" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
-                                        <td class="boardCell">
+                                        <td class="boardCell" id="first">
                                             <div id="22" class="staticValue">
                                                 <input>8</input>
                                             </div>
@@ -449,7 +496,7 @@ input {
                                     <tr>
                                         <td class="boardCell">
                                             <div id="03" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                         <td class="boardCell">
@@ -466,34 +513,34 @@ input {
                                     <tr>
                                         <td class="boardCell">
                                             <div id="13" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                         <td class="boardCell">
                                             <div id="14" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                         <td class="boardCell">
                                             <div id="15" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="boardCell">
                                             <div id="23" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                         <td class="boardCell">
                                             <div id="24" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                         <td class="boardCell">
                                             <div id="25" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                     </tr>
@@ -504,7 +551,7 @@ input {
                                     <tr>
                                         <td class="boardCell">
                                             <div id="06" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                         <td class="boardCell">
@@ -531,7 +578,7 @@ input {
                                         </td>
                                         <td class="boardCell">
                                             <div id="18" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                     </tr>
@@ -543,7 +590,7 @@ input {
                                         </td>
                                         <td class="boardCell">
                                             <div id="27" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                         <td class="boardCell">
@@ -561,7 +608,7 @@ input {
                                     <tr>
                                         <td class="boardCell">
                                             <div id="30" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                         <td class="boardCell">
@@ -571,14 +618,14 @@ input {
                                         </td>
                                         <td class="boardCell">
                                             <div id="32" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="boardCell">
                                             <div id="40" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                         <td class="boardCell">
@@ -588,14 +635,14 @@ input {
                                         </td>
                                         <td class="boardCell">
                                             <div id="42" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="boardCell">
                                             <div id="50" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                         <td class="boardCell">
@@ -616,7 +663,7 @@ input {
                                     <tr>
                                         <td class="boardCell">
                                             <div id="33" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                         <td class="boardCell">
@@ -626,7 +673,7 @@ input {
                                         </td>
                                         <td class="boardCell">
                                             <div id="35" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                     </tr>
@@ -638,7 +685,7 @@ input {
                                         </td>
                                         <td class="boardCell">
                                             <div id="44" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                         <td class="boardCell">
@@ -650,7 +697,7 @@ input {
                                     <tr>
                                         <td class="boardCell">
                                             <div id="53" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                         <td class="boardCell">
@@ -660,7 +707,7 @@ input {
                                         </td>
                                         <td class="boardCell">
                                             <div id="55" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                     </tr>
@@ -681,14 +728,14 @@ input {
                                         </td>
                                         <td class="boardCell">
                                             <div id="38" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="boardCell">
                                             <div id="46" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                         <td class="boardCell">
@@ -698,14 +745,14 @@ input {
                                         </td>
                                         <td class="boardCell">
                                             <div id="48" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="boardCell">
                                             <div id="56" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                         <td class="boardCell">
@@ -715,7 +762,7 @@ input {
                                         </td>
                                         <td class="boardCell">
                                             <div id="58" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                     </tr>
@@ -733,7 +780,7 @@ input {
                                         </td>
                                         <td class="boardCell">
                                             <div id="61" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                         <td class="boardCell">
@@ -745,7 +792,7 @@ input {
                                     <tr>
                                         <td class="boardCell">
                                             <div id="70" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                         <td class="boardCell">
@@ -772,7 +819,7 @@ input {
                                         </td>
                                         <td class="boardCell">
                                             <div id="82" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                     </tr>
@@ -783,34 +830,34 @@ input {
                                     <tr>
                                         <td class="boardCell">
                                             <div id="63" class="editValue error">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                         <td class="boardCell">
                                             <div id="64" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                         <td class="boardCell">
                                             <div id="65" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="boardCell">
                                             <div id="73" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                         <td class="boardCell">
                                             <div id="74" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                         <td class="boardCell">
                                             <div id="75" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                     </tr>
@@ -827,7 +874,7 @@ input {
                                         </td>
                                         <td class="boardCell">
                                             <div id="85" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                     </tr>
@@ -843,7 +890,7 @@ input {
                                         </td>
                                         <td class="boardCell">
                                             <div id="67" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                         <td class="boardCell">
@@ -860,24 +907,24 @@ input {
                                         </td>
                                         <td class="boardCell">
                                             <div id="77" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                         <td class="boardCell">
                                             <div id="78" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="boardCell">
                                             <div id="86" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                         <td class="boardCell">
                                             <div id="87" class="editValue">
-                                                <input/>
+                                                <input id="inputedit" />
                                             </div>
                                         </td>
                                         <td class="boardCell">
@@ -891,19 +938,19 @@ input {
                         </tr>
                     </table>
                 </div>
-                <div id="Column2" style="border: 1px solid green;">
+                <div id="Column2">
                         <input id="newGameButton" type="submit" value="NEW GAME" class="gameControls"/>
                         <label>
                             Level:
                         </label>
-                        <select id="difficulty">
+                        <select id="difficulty" name="dropdown">
                             <option value="1" selected>Easy</option>
                             <option value="2">Medium</option>
                             <option value="3">Hard</option>
                             <!-- <option value="4">Very Hard</option>
                             <option value="5">Insane</option> -->
                         </select>
-                        <input id="checkButton" type="submit" value="CHECK &#x2713;" class="gameControls"/>
+                        <input id="checkButton" type="submit" value="Validate &#x2713;" class="gameControls"/>
                         <input id="solveButton" type="submit" value="SOLVE" class="gameControls"/>
                         <span id="errorsFound" class="errorsFound" style="display: none;" role="tab" aria-selected="true" aria-controls="ErrorsFound" tabindex="300">MISTAKE FOUND</span>
                         <span id="noErrors" class="noErrors" style="display: none;" role="tab" aria-selected="true" aria-controls="NoErrorsFound" tabindex="400">LOOKIN GOOD</span>
@@ -927,10 +974,9 @@ input {
             <input id="winCloseButton" type="submit" value="CLOSE" class="gameControls"/>
         </div>
     </div>
-    <script type="text/javascript" src="test.js">
-    </script>
-    <script>function solveSudoku(inputBoard, stats) {
-  
+    <script type="text/javascript">
+          function solveSudoku(inputBoard, stats) {
+      
       var stats = stats || {};
       stats['easy'] = true;
       var board = JSON.parse(JSON.stringify(inputBoard));
@@ -1014,7 +1060,7 @@ input {
                 mutated = true;
                 continue;
               }
-    
+
               if(needCheckFreedoms) {
                 var solution = checkFreedoms(board, i, j, possibilities, zoneRow, zoneCol);
                 
@@ -1024,7 +1070,7 @@ input {
                   mutated = true;
                   continue;
                 }
-    
+
                 if(remaining === leastRemaining) {
                   leastFree.push([i,j]);
                 }
@@ -1061,7 +1107,7 @@ input {
         return board;
       }
     }
-    
+
     function getZone(i) {
       if(i < 3) {
         return 0;
@@ -1073,12 +1119,12 @@ input {
         return 2;
       }
     }
-    
-    
+
+
     function reducePossibilities(board, row, column, currentPos, zoneRow, zoneCol) {
-    
+
       var mutated = false;
-    
+
       //eliminate items already taken in the column and row
       for(var k = 0; k < 9; k++) {
         if(currentPos[board[row][k]] || currentPos[board[k][column]]) {
@@ -1103,9 +1149,9 @@ input {
       
       return mutated;
     }
-    
+
     function checkFreedoms(board, i, j, possibilities, zoneRow, zoneCol) {
-    
+
       var answer = 0;
       var currentPos = possibilities[i][j];
       //see if only one square can realize a possibility
@@ -1129,7 +1175,7 @@ input {
       var remainingCol = 0;
       var lastDigitRow = 0;
       var lastDigitCol = 0;
-    
+
       for(var k = 1; k <= 9; k++) {
         if(uniquePosRow[k]) {
           remainingRow++;
@@ -1163,7 +1209,7 @@ input {
       
       var remainingCube = 0;
       var lastDigitCube = 0;
-    
+
       for(var k = 1; k <= 9; k++) {
         if(uniquePosCube[k]) {
           remainingCube++;
@@ -1178,7 +1224,7 @@ input {
       return answer;
       
     }
-    
+
     function solveByGuessing(board, possibilities, leastFree, stats) {
       if(leastFree.length < 1) {
         return null;
@@ -1217,13 +1263,13 @@ input {
       // board is impossible
       return null;
     }
-    
-    
+
+
     // returns a random number in the range 0 to limit - 1 inclusive
     function getRandom(limit) {
       return Math.floor(Math.random() * limit);
     }
-    
+
     // shuffle an array Fisher-Yates style
     function shuffleArray(array) {
       var i = array.length;
@@ -1237,14 +1283,14 @@ input {
         }
       }
     }
-    
+
     // for benchmarking, use a random generator from a seed
     (function() {
-    
+
       // some dummy value to start with
       var last = 31337;
       var randomBackup = Math.random;
-    
+
       // Linear Congruential Generator
       var fakeRandom = function() {
         var a = 214013;
@@ -1271,8 +1317,8 @@ input {
       }
       
     })();
-    
-    
+
+
     function generatePuzzle(difficulty) {
       
       if(difficulty !== 1 && difficulty !== 2 && 
@@ -1337,8 +1383,8 @@ input {
       return solvedPuzzle;
       
     }
-    
-    
+
+
     function verifySolution(board, onlyFullySolved) {
       
       var resp = {};
@@ -1396,14 +1442,14 @@ input {
           else {
             cube[digit] = true;
           }
-    
+
         }
       }
       
       resp['valid'] = true;
       return resp;
     }
-    
+
     var easyPuzzle = [
       [5, 3, 0, 0, 7, 0, 0, 0, 0],
       [6, 0, 0, 1, 9, 5, 0, 0, 0],
@@ -1415,7 +1461,7 @@ input {
       [0, 0, 0, 4, 1, 9, 0, 0, 5],
       [0, 0, 0, 0, 8, 0, 0, 7, 9]
     ];
-    
+
     var easyPuzzle2 = [
       [1, 6, 0, 0, 0, 3, 0, 0, 0],
       [2, 0, 0, 7, 0, 6, 0, 1, 4],
@@ -1427,7 +1473,7 @@ input {
       [6, 3, 0, 1, 0, 5, 0, 0, 2],
       [0, 0, 0, 8, 0, 0, 0, 3, 6]
     ];
-    
+
     var easyPuzzle3 = [
       [8, 1, 0, 0, 2, 9, 0, 0, 0],
       [4, 0, 6, 0, 7, 3, 0, 5, 1],
@@ -1439,7 +1485,7 @@ input {
       [6, 9, 0, 2, 8, 0, 3, 0, 5],
       [0, 0, 0, 9, 6, 0, 0, 2, 4]
     ];
-    
+
     var solvedPuzzle = [
       [5, 3, 4, 6, 7, 8, 9, 1, 2],
       [6, 7, 2, 1, 9, 5, 3, 4, 8],
@@ -1451,7 +1497,7 @@ input {
       [2, 8, 7, 4, 1, 9, 6, 3, 5],
       [3, 4, 5, 2, 8, 6, 1, 7, 9]
     ];
-    
+
     var invalidPuzzle = [
       [5, 3, 4, 6, 7, 8, 9, 1, 2],
       [6, 7, 2, 1, 9, 5, 3, 4, 8],
@@ -1463,7 +1509,7 @@ input {
       [8, 2, 7, 4, 1, 9, 6, 3, 5],
       [3, 4, 5, 2, 8, 6, 1, 7, 9]
     ];
-    
+
     var hardPuzzle = [
       [0, 0, 3, 0, 0, 8, 0, 0, 0],
       [0, 4, 0, 0, 0, 0, 0, 0, 0],
@@ -1475,7 +1521,7 @@ input {
       [0, 0, 0, 0, 0, 0, 0, 5, 0],
       [0, 0, 0, 9, 0, 0, 2, 0, 0]
     ];
-    
+
     var mediumPuzzle = [
       [0, 8, 3, 7, 0, 0, 0, 9, 0],
       [0, 0, 7, 0, 5, 0, 6, 4, 0],
@@ -1487,7 +1533,7 @@ input {
       [0, 5, 6, 0, 2, 0, 4, 0, 0],
       [0, 1, 0, 0, 0, 7, 5, 3, 0]
     ];
-    
+
     var emptyPuzzle = [
       [0, 0, 0, 0, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -1499,7 +1545,7 @@ input {
       [0, 0, 0, 0, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0, 0, 0, 0, 0]
     ];
-    
+
     function stressTest() {
       
       var intervalCount = 0;
@@ -1520,13 +1566,13 @@ input {
       }, 1);
       
     }
-    
+
     function cellInputHandler(event) {
       if(!this.value.match(/^[1-9]$/)) {
         this.value = "";
       }
     }
-    
+
     function renderBoard(board) {
       for(var i = 0; i < 9; i++) {
         for(var j = 0; j < 9; j++) {
@@ -1555,7 +1601,7 @@ input {
         }
       }
     }
-    
+
     // render the board a special way when the algorithm solves it for the user
     // make it look like the user entered it in
     function renderSolvedBoard(board) {
@@ -1571,7 +1617,7 @@ input {
         }
       }
     }
-    
+
     function getCurrentBoard() {
       
       var board = new Array(9);
@@ -1603,7 +1649,7 @@ input {
       
       return board;
     }
-    
+
     function printBoard(board) {
       for(var i = 0; i < 9; i++) {
         var line = "";
@@ -1613,12 +1659,12 @@ input {
         window.console && console.log(line);
       }
     }
-    
+
     function solveTest(level, after) {
-    
+
       var easyCount = 2000;
       var hardCount = 200;
-    
+
       switch(level) {
         case 1:
           easyCount = 475;
@@ -1673,7 +1719,7 @@ input {
       window.setTimeout(timeoutFunc, 300);
       
     }
-    
+
     function solveTestHelper(puzzle, iterations) {
       var solution = null;
       var start = new Date();
@@ -1686,7 +1732,7 @@ input {
       var timeElapsed = (end.getTime() - start.getTime()) / 1000;
       return timeElapsed;
     }
-    
+
     function initialize() {
       // hook up buttons
       
@@ -1721,7 +1767,7 @@ input {
           clearErrors();
           finishedCalculatingDiv.style.display = 'none';
           calculatingDiv.style.display = 'block';
-     
+    
           solveTest(level, function() {
             finishedCalculatingDiv.style.display = 'block';
             calculatingDiv.style.display = 'none';
@@ -1819,7 +1865,7 @@ input {
       }, false);
       
       var solveButton = document.getElementById('solveButton');
-  
+
       // Puzzle will be solved
       solveButton.addEventListener('click', function() {
         clearErrors();
@@ -1833,7 +1879,13 @@ input {
       }, false);
       
     }
-    
-    addEventListener('DOMContentLoaded', initialize, false);</script>
+    function colorchange(x) {
+      // var inputvar = 
+      x.style.backgroundColor = "Blue";
+      
+    }
+
+    addEventListener('DOMContentLoaded', initialize, false);
+    </script>
 </body>
 </html>
